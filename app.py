@@ -39,7 +39,6 @@ def chat_interface():
 
     last = st.session_state.history[-1]
     if last["role"] == "assistant" and prompts.THANK_YOU in last["content"]:
-        _save_conversation()
         return
 
     if user_input := st.chat_input("Your response…"):
