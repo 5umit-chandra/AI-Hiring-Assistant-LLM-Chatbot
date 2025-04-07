@@ -7,18 +7,16 @@ import prompts
 
 load_dotenv()
 
-st.set_page_config(page_title="Hiring Assistant", page_icon="💼")
-
-if "openai_model" not in st.session_state:
-    st.session_state.openai_model = "gpt-4o-mini"
+st.session_state.setdefault("openai_model", "gpt-4o-mini")
 
 client = OpenAI(
     base_url=os.getenv("OPENAI_API_BASE_URL"),
     api_key=os.getenv("GITHUB_TOKEN")
 )
 
-
 # ─── Chat Interface ────────────────────────────────────────────────────────────
+
+st.set_page_config(page_title="Hiring Assistant", page_icon="💼")
 
 def chat_interface():
     st.title("🤖 Hiring Assistant Bot")
