@@ -89,7 +89,7 @@ def _save_conversation():
 # ─── Main Chat Interface ──────────────────────────────────────────────────────
 
 def chat_interface():
-    st.title("🤖 Hiring Assistant Bot")
+    st.title("🤖 Hiring Assistant ChatBot")
     
     initialize_chat_data()
     render_history()
