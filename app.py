@@ -22,6 +22,14 @@ with st.sidebar:
         type="password",
         placeholder="GITHUB_TOKEN"
     )
+    
+    st.markdown("[![Get GPT-4o Key](https://img.shields.io/badge/🔑_Get_OpenAI_GPT--4o_Key-for_free-412991?style=for-the-badge&logo=openai&logoColor=white)](https://github.com/marketplace/models/azure-openai/gpt-4o/playground)")
+    st.markdown("[![Or Watch Tutorial](https://img.shields.io/badge/Or_Watch_This_Tutorial-FF0000?style=flat&logo=youtube)](https://www.youtube.com/watch?v=YP8mV_2RDLc)")
+    st.markdown("[![GitHub Token Docs](https://img.shields.io/badge/GitHub_Token_Docs-181717?style=flat-square&logo=github)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)")
+    st.markdown("")
+    st.markdown("")
+    st.markdown("")
+    st.markdown("[![View the source code](https://img.shields.io/badge/View_the_source_code-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/5umit-chandra/AI-Hiring-Assistant-LLM-Chatbot/blob/main/app.py)")
 
 if sidebar_token:
     github_token = sidebar_token
