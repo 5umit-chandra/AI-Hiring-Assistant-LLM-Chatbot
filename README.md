@@ -7,8 +7,7 @@
 ### <img src="https://streamlit.io/images/brand/streamlit-mark-color.png" width="40" height="22"> Live Demo
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://langchain-chatbot.streamlit.app/)  
 
-![Screenshort](https://github.com/user-attachments/assets/0f79e257-6b83-468a-9d48-d3a038921163)
-<img width="960" alt="Image" src="https://github.com/user-attachments/assets/0f79e257-6b83-468a-9d48-d3a038921163" />
+<img width="860" alt="Image" src="https://github.com/user-attachments/assets/0f79e257-6b83-468a-9d48-d3a038921163" />
 
 ---
 
