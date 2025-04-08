@@ -8,16 +8,19 @@ from openai import OpenAI
 
 import prompts
 
-load_dotenv()
+# ─── Configuration ─────────────────────────────────────────────────────────────
 
+load_dotenv()
+    
 st.set_page_config(page_title="Hiring Assistant", page_icon="💼")
 
 with st.sidebar:
     sidebar_token = st.text_input(
-        "GITHUB_TOKEN",
+        label="GitHub Token (paste if not pre-configured)",
+        help="Enter your GitHub token here if it's not already available in your .env file. The token from .env will be used if you leave this field empty.",
         key="github_token",
         type="password",
-        placeholder="Paste your GitHub token here"
+        placeholder="GITHUB_TOKEN"
     )
 
 if sidebar_token:
