@@ -10,14 +10,32 @@ import prompts
 
 load_dotenv()
 
+st.set_page_config(page_title="Hiring Assistant", page_icon="💼")
+
+with st.sidebar:
+    sidebar_token = st.text_input(
+        "GITHUB_TOKEN",
+        key="github_token",
+        type="password",
+        placeholder="Paste your GitHub token here"
+    )
+
+if sidebar_token:
+    github_token = sidebar_token
+else:
+    github_token = os.getenv("GITHUB_TOKEN")
+
+if not github_token:
+    st.warning("Please paste your GitHub token in the sidebar.")
+
 st.session_state.setdefault("openai_model", "gpt-4o-mini")
 
 SAVE_DIR = "submissions"
 os.makedirs(SAVE_DIR, exist_ok=True)
 
 client = OpenAI(
-    base_url=os.getenv("OPENAI_API_BASE_URL"),
-    api_key=os.getenv("GITHUB_TOKEN")
+    base_url="https://models.inference.ai.azure.com",
+    api_key=github_token
 )
 
 # ─── Chat Interface Components ────────────────────────────────────────────────
