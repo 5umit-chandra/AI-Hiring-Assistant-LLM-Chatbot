@@ -14,51 +14,47 @@ client = OpenAI(
     api_key=os.getenv("GITHUB_TOKEN")
 )
 
-# ─── Chat Interface ────────────────────────────────────────────────────────────
+# ─── Chat Interface Components ────────────────────────────────────────────────
 
-st.set_page_config(page_title="Hiring Assistant", page_icon="💼")
-
-def chat_interface():
-    st.title("🤖 Hiring Assistant Bot")
-
+def initialize_chat_data():
     if "history" not in st.session_state:
-        st.session_state.history = [
-            {"role": "assistant", "content": prompts.GREETING}
-        ]
+        st.session_state.history = [{"role": "assistant", "content": prompts.GREETING}]
     if "system_message" not in st.session_state:
         st.session_state.system_message = {
             "role": "system",
             "content": prompts.SYSTEM_PROMPT
         }
 
+def render_history():
     for msg in st.session_state.history:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
 
-    last = st.session_state.history[-1]
-    if last["role"] == "assistant" and prompts.THANK_YOU in last["content"]:
-        return
+def handle_user_input(user_input):
+    st.session_state.history.append({"role": "user", "content": user_input})
+    with st.chat_message("user"):
+        st.markdown(user_input)
 
+    messages_for_api = [st.session_state.system_message] + st.session_state.history
+
+    with st.chat_message("assistant"):
+        stream = client.chat.completions.create(
+            model=st.session_state.openai_model,
+            messages=messages_for_api,
+            temperature=0.7,
+            stream=True
+        )
+        assistant_reply = st.write_stream(stream)
+
+# ─── Main Chat Interface ──────────────────────────────────────────────────────
+
+def chat_interface():
+    st.title("🤖 Hiring Assistant Bot")   
+    initialize_chat_data()
+    render_history()
+    
     if user_input := st.chat_input("Your response…"):
-        st.session_state.history.append({"role": "user", "content": user_input})
-        with st.chat_message("user"):
-            st.markdown(user_input)
-
-        messages_for_api = [st.session_state.system_message] + st.session_state.history
-
-        with st.chat_message("assistant"):
-            stream = client.chat.completions.create(
-                model=st.session_state.openai_model,
-                messages=messages_for_api,
-                temperature=0.7,
-                stream=True
-            )
-            assistant_reply = st.write_stream(stream)
-
-        st.session_state.history.append({
-            "role": "assistant",
-            "content": assistant_reply
-        })
+        handle_user_input(user_input)
 
 # ─── Main ─────────────────────────────────────────────────────────────────────
 
