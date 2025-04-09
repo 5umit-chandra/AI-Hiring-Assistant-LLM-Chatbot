@@ -4,8 +4,7 @@
 
 *Hiring Assistant Chatbot* is an intelligent, Streamlit-based chatbot designed to streamline the initial candidate screening process. It gathers essential candidate information and poses **5 tailored technical questions** based on the candidate’s declared tech stack and years of experience. The chatbot uses the GitHub Marketplace GPT-4o model, enabling free usage of what would otherwise be a paid OpenAI API key—all while maintaining identical functionality to the standard OpenAI implementation (aside from the BASE_URL).
 
-### <img src="https://streamlit.io/images/brand/streamlit-mark-color.png" width="40" height="22"> Live Demo
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://langchain-chatbot.streamlit.app/)  
+### <img src="https://streamlit.io/images/brand/streamlit-mark-color.png" width="40" height="22"> Live Demo [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://langchain-chatbot.streamlit.app/)  
 
 <img width="860" alt="Image" src="https://github.com/user-attachments/assets/0f79e257-6b83-468a-9d48-d3a038921163" />
 
@@ -19,6 +18,27 @@
   - 🧠 Context-aware technical questions tailored to candidate's experience level
 - **Real-time Conversational UI:** Powered by Streamlit.
 - **Data Management:** Auto-saves candidate conversations in JSON format.
+
+---
+
+## 🔧 **Code Quality & Structure**
+
+- **Structure & Readability:**
+  - Organized into logical files (**`app.py`**, **`prompts.py`**).
+  - Uses modular functions *(e.g., `initialize_chat_data`, `render_history`, `handle_user_input`, `_save_conversation`)*.
+  - Consistent naming conventions enhance readability.
+  
+- **Documentation:**
+  - Inline comments explain code sections.
+  - Docstrings for key functions describe their purpose, arguments, and behavior.
+  
+- **Version Control:**
+  - Uses Git for version control.
+  - The repository includes a **`.gitignore`** file to exclude sensitive information *(`.env`)* and unnecessary files *(venv/, __pycache__/)*.
+  
+- **Maintainability:**
+  - Separating prompts into **`prompts.py`** makes updates easier.
+  - Modular function design simplifies debugging and adding new features.
 
 ---
 
@@ -144,27 +164,6 @@ streamlit run app.py
 
 - **Challenge:** *Accessing powerful LLM capabilities without incurring costs.*  
   **Solution:** Leverage the free GitHub Marketplace GPT-4o model by configuring the standard OpenAI Python client to use the model’s specific Azure endpoint and authenticate using a GitHub token.
-
----
-
-## 🔧 **Code Quality & Structure**
-
-- **Structure & Readability:**
-  - Organized into logical files (**`app.py`**, **`prompts.py`**).
-  - Uses modular functions *(e.g., `initialize_chat_data`, `render_history`, `handle_user_input`, `_save_conversation`)*.
-  - Consistent naming conventions enhance readability.
-  
-- **Documentation:**
-  - Inline comments explain code sections.
-  - Docstrings for key functions describe their purpose, arguments, and behavior.
-  
-- **Version Control:**
-  - Uses Git for version control.
-  - The repository includes a **`.gitignore`** file to exclude sensitive information *(`.env`)* and unnecessary files *(venv/, __pycache__/)*.
-  
-- **Maintainability:**
-  - Separating prompts into **`prompts.py`** makes updates easier.
-  - Modular function design simplifies debugging and adding new features.
 
 ---
 
