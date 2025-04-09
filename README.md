@@ -2,7 +2,7 @@
 
 ## 📄 **Project Overview**
 
-*Hiring Assistant Chatbot* is an intelligent, Streamlit-based chatbot designed to streamline the initial candidate screening process. It gathers essential candidate information and poses **5 tailored technical questions** based on the candidate’s declared tech stack and years of experience. The chatbot uses the GitHub Marketplace GPT-4o model, enabling free usage of what would otherwise be a paid OpenAI API key—all while maintaining identical functionality to the standard OpenAI implementation (aside from the BASE_URL).
+Chatbot Using LLM to help streamline initial candidate screening. It gathers essential candidate information and poses **5 tailored technical questions** based on the candidate’s declared tech stack and years of experience. The chatbot **uses the GitHub Marketplace GPT-4o model**, enabling **free** usage of what would otherwise be a paid OpenAI API key—all while maintaining identical functionality to the standard OpenAI implementation (aside from the BASE_URL).
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://hiring-assistant-chatbot.streamlit.app/)  
 
